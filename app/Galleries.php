@@ -19,4 +19,9 @@ class Galleries extends Model
         'update_at',
         'deleted_at'
     ];
+
+    public function getDescriptionAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }
