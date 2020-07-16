@@ -24,8 +24,9 @@ class Galleries extends Model
     {
         return ucfirst($value);
     }
-    public function getTitleAttribute($value)
+
+    public function setTitleAttribute($value)
     {
-        return ucfirst($value);
+        return $this->attributes['title'] = ucfirst($value);
     }
 }

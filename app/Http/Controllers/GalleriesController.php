@@ -16,7 +16,7 @@ class GalleriesController extends Controller
     public function index()
     {
             $galleries = Galleries::all();
-        return view('admin.galleries.index', compact('galleries'));
+          return view('admin.galleries.index', compact('galleries'));
     }
 
     /**
