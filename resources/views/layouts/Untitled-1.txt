@@ -1,0 +1,9 @@
+<?php
+
+$HASH = md5('karanawate8@gmail.com');
+$src = "https://www.gravatar.com/avatar/$HASH";
+
+echo '<img src="'.$src.'">';
+
+?>
+https://en.gravatar.com/site/implement/images/

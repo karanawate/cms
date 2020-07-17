@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-end mb-2">
-        <a href="{{ route('galleries.create')}}" class="btn btn-success float-right">Add Testimonials</a>
+        <a href="{{ route('testimonials.create')}}" class="btn btn-success float-right">Add Testimonials</a>
     </div>
     @if(session()->has('success'))
             <div class="alert alert-success">
