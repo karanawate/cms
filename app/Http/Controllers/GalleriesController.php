@@ -13,9 +13,17 @@ class GalleriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(REQUEST $request)
     {
-            $galleries = Galleries::all();
+        $search = $request->query('search');
+            if($search){
+                $galleries = Galleries::where('title','LIKE', "%{$search}%")->simplePaginate(3);
+            }
+            else
+            {
+                $galleries = Galleries::simplePaginate(3);
+            }
+           /// $galleries = Galleries::all();
           return view('admin.galleries.index', compact('galleries'));
     }
 

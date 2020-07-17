@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<form action="{{ route('galleries.index')}}" method="get">
+        <input type="text" name="search" placeholder="search" >
+       </form>
+
     <div class="d-flex justify-content-end mb-2">
+
         <a href="{{ route('galleries.create')}}" class="btn btn-success float-right">Add Gallery</a>
     </div>
     @if(session()->has('success'))
