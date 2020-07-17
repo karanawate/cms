@@ -22,13 +22,19 @@
                     <th>description</th>
                 </thead>
                 <tbody>
-                    @foreach($galleries as $gallery)
+                    @forelse($galleries as $gallery)
                 <tr>
                         <td>{{ $gallery->title }}</td>
                         <td><img  style="width:70px; height:70px;" src="{!! url('/gallery/'.$gallery->image) !!}" alt="dfdf" title="" /></td>
                         <td>{{ str_limit($gallery->description, 10) }}</td>
                 </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td>
+                        No data here :(
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
