@@ -25,8 +25,12 @@
                         </div>
                         <div class="form-group">
                             <label for="category">Category</lable>
-                            <input style="width:706px;" type="text" id="name" class="form-control" name="category" />
-                            <p style="color:red"> <?php echo  $errors->first('category') ?></p>
+                            <select name="category" style="width:706px;" class="form-control" id="">
+                            <option value=""></option>
+                                @foreach($categoryResults as $categoryResult)
+                                 <option  value="{{$categoryResult->id}}">{{$categoryResult->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="image">Image</lable>

@@ -97,11 +97,9 @@
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="{{ route('categories.index') }}">Categories</a>
+                            <a href="{{ route('categories.index') }}"> Gallery Categories</a>
                         </li>
-                        <li class="list-group-item">
-                            <a href="{{route('galleries.index')}}">gallery category</a>
-                        </li>
+
                         <li class="list-group-item">
                             <a href="{{route('testimonials.index')}}">Testimonials-category</a>
                         </li>

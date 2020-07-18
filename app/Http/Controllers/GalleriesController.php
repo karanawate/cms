@@ -15,6 +15,7 @@ class GalleriesController extends Controller
      */
     public function index(REQUEST $request)
     {
+
         $search = $request->query('search');
             if($search){
                 $galleries = Galleries::where('title','LIKE', "%{$search}%")->simplePaginate(3);
@@ -33,7 +34,10 @@ class GalleriesController extends Controller
      */
     public function create()
     {
-        return view('admin.galleries.create');
+        $categoryResults = \App\Category::all();
+        //dd($categoryResult);
+
+        return view('admin.galleries.create', compact('categoryResults'));
     }
 
     /**
