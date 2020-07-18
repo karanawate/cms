@@ -12,7 +12,7 @@
 */
 Route::resource('categories','CategoriesController');
 Route::resource('galleries','GalleriesController');
-Route::resource('testimonials','TestimonialController')->middleware('auth');
+Route::resource('testimonials','TestimonialController')->middleware(['auth']);
 Route::resource('clients','ClientlogoController');
 Route::resource('contacts','ContactreportController');
 Route::get('/', function () {

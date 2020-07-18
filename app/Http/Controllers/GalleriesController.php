@@ -8,6 +8,12 @@ use App\http\Requests\Galleries\CreateGalleryRequest;
 
 class GalleriesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('VerifyCategoriesCount')->only(['create', 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
