@@ -19,8 +19,7 @@ class GalleriesController extends Controller
             if($search){
                 $galleries = Galleries::where('title','LIKE', "%{$search}%")->simplePaginate(3);
             }
-            else
-            {
+            else{
                 $galleries = Galleries::simplePaginate(3);
             }
            /// $galleries = Galleries::all();
