@@ -27,7 +27,8 @@
                     <th>description</th>
                 </thead>
                 <tbody>
-                {{ Auth::user()->name }}
+                <!-- accesss to auth function use auth::user name -->
+                {{ Auth::user()->email}}
                     @forelse($galleries as $gallery)
                 <tr>
                         <td>{{ $gallery->title }}</td>
