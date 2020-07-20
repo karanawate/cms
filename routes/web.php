@@ -22,3 +22,13 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('profile', 'profileController');
+
+Route::get('subs', function(){
+    if (Gate::allows('subs-only', Auth::user())) {
+            return view('sub');
+    }else
+    {
+        return  "You are not subscriber";
+    }
+});
+
