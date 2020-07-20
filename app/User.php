@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function setNameAttribute($value)
+    {
+        return $this->attributes['name'] =  ucfirst($value);
+    }
+
 }
+
