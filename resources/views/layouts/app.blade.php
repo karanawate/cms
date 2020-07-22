@@ -113,6 +113,8 @@
       </h4>
     </div>
   </div>
+
+
   <div class="list-group-item">
     <div  id="headingThree">
       <h4 class="mb-0">
@@ -120,6 +122,13 @@
       </h4>
     </div>
 
+  </div>
+  <div class="list-group-item">
+    <div  id="headingTwo">
+      <h4 class="mb-0">
+        <a href="{{route('reports.index')}}" class="btn btn-link collapsed"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">User Reports</a>
+      </h4>
+    </div>
   </div>
 </div>
                 </div>

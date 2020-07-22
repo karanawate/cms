@@ -15,6 +15,7 @@ Route::resource('galleries','GalleriesController');
 Route::resource('testimonials','TestimonialController')->middleware(['auth']);
 Route::resource('clients','ClientlogoController');
 Route::resource('contacts','ContactreportController');
+Route::resource('reports', 'ReportController');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,16 +33,8 @@ Route::get('subs', function(){
     }
 });
 
-// email test url
 
-Route::get('/send-mail', function(){
-    $details = [
-            'title' =>'this is my mail',
-            'body' =>'hey hello'
-        ];
-        \Mail::to('karanawate8@gmail.com')->send(new \App\Mail\TestMail($details));
-        echo "Email has been sent";
 
-});
+
 
 
