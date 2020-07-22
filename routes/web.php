@@ -32,3 +32,16 @@ Route::get('subs', function(){
     }
 });
 
+// email test url
+
+Route::get('/send-mail', function(){
+    $details = [
+            'title' =>'this is my mail',
+            'body' =>'hey hello'
+        ];
+        \Mail::to('karanawate8@gmail.com')->send(new \App\Mail\TestMail($details));
+        echo "Email has been sent";
+
+});
+
+
