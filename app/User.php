@@ -46,6 +46,10 @@ class User extends Authenticatable
     {
         return $this->attributes['name'] =  ucfirst($value);
     }
+    public function mobile()
+    {
+        return $this->hasMany(mobile::class);
+    }
 
 }
 
