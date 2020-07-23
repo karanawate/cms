@@ -128,7 +128,7 @@
   <div class="list-group-item">
     <div  id="headingTwo">
       <h4 class="mb-0">
-        <a href="{{route('reports.index')}}" class="btn btn-link collapsed"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">User Reports</a>
+        <a href="{{route('reports.index')}}" class="btn btn-link collapsed"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">User's Report</a>
       </h4>
     </div>
   </div>
