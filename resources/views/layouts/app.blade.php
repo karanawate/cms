@@ -123,6 +123,8 @@
     </div>
 
   </div>
+
+  @can('user-only', Auth::user())
   <div class="list-group-item">
     <div  id="headingTwo">
       <h4 class="mb-0">
@@ -130,6 +132,7 @@
       </h4>
     </div>
   </div>
+  @endcan
 </div>
                 </div>
                 <div class="col-md-8">

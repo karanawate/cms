@@ -15,7 +15,7 @@ Route::resource('galleries','GalleriesController');
 Route::resource('testimonials','TestimonialController')->middleware(['auth']);
 Route::resource('clients','ClientlogoController');
 Route::resource('contacts','ContactreportController');
-Route::resource('reports', 'ReportController');
+Route::resource('reports', 'ReportController')->middleware(['auth']);
 Route::get('/', function () {
     return view('welcome');
 });

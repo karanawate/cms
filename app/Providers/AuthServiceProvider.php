@@ -32,5 +32,14 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        // when user subscriber = 1 it show the result only
+        Gate::define('user-only', function($user){
+            if($user->subs == 1)
+            {
+                return true;
+            }
+            return false;
+        });
     }
 }
