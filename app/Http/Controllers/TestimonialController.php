@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
@@ -34,7 +36,12 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        // enctype = "multipart/form-data" use file glbal parameter working
+        if($request->hasFile('image'))
+        {
+            echo "Welcome";
+        }
     }
 
     /**

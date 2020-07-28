@@ -11,8 +11,8 @@
                     {{session()->get('success')}}
                 </div>
             @endif
-            <form action="{{ route('galleries.store')}}" enctype="multipart/form-data"  method="post">
-                {{csrf_field()}}
+            <form action="{{ route('testimonials.store')}}" enctype="multipart/form-data"  method="post">
+            @csrf
                         <div class="form-group">
                             <label for="name">Title</lable>
                             <input style="width:706px;" type="text" id="name" class="form-control" name="title" />
