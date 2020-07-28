@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\CreateTestimonialRequest;
 
 class TestimonialController extends Controller
 {
@@ -34,15 +35,16 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTestimonialRequest $request)
     {
+        // $request-> validate([
+        //     'title' => 'required'
+        // ]);
+
         $image = $request->file('image');
-
-
         // enctype = "multipart/form-data" use file glbal parameter working
         if($request->hasFile('image'))
         {
-            //  store in to public/ testimonial get file name and concate fileextensition
             $getext = $image->getClientOriginalExtension();
             $storeImg = Storage::disk('testimonial')->put($image->getFilename(). '.'.$getext, File::get($image));
             dd($storeImg);
