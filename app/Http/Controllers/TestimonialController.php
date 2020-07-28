@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -15,6 +14,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
+        //echo "Hi";
         return view('admin.testimonials.index');
     }
 
@@ -37,10 +37,17 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         $image = $request->file('image');
+
+
         // enctype = "multipart/form-data" use file glbal parameter working
         if($request->hasFile('image'))
         {
-            echo "Welcome";
+            //  store in to public/ testimonial get file name and concate fileextensition
+            $getext = $image->getClientOriginalExtension();
+            $storeImg = Storage::disk('testimonial')->put($image->getFilename(). '.'.$getext, File::get($image));
+            dd($storeImg);
+            echo "inserted successfully";
+
         }
     }
 

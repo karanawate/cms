@@ -63,6 +63,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'testimonial' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/testimonial',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
 
 
 

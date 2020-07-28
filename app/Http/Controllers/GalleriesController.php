@@ -59,6 +59,7 @@ class GalleriesController extends Controller
         {
             $extension = $cover->getClientOriginalExtension();
             Storage::disk('gallery')->put($cover->getFilename() . '.' . $extension,  File::get($cover));
+
             $image = $cover->getFilename() . '.' . $extension;
           }
             $gallery = Galleries::create([
