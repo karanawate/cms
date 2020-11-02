@@ -33,7 +33,7 @@
                 <tr>
                         <td>{{ $gallery->title }}</td>
                         <td><img  style="width:70px; height:70px;" src="{!! url('/gallery/'.$gallery->image) !!}" alt="dfdf" title="" /></td>
-                        <td>{{ str_limit($gallery->description, 10) }}</td>
+                        <td>{{ str_limit($gallery->description, 15) }}</td>
                 </tr>
                     @empty
                     <tr>
