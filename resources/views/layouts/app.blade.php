@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+    ">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -133,6 +136,16 @@
     </div>
   </div>
   @endcan
+
+  <div class="list-group-item">
+    <div  id="headingThree">
+      <h4 class="mb-0">
+      <a href="{{route('testimonials.index')}}" class="btn btn-link collapsed"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Products</a>
+      </h4>
+    </div>
+
+  </div>
+
 </div>
                 </div>
                 <div class="col-md-8">
