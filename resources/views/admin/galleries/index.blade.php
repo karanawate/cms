@@ -9,13 +9,7 @@
 
         <a href="{{ route('galleries.create')}}" class="btn btn-success float-right">Add Gallery</a>
     </div>
-    @if(session()->has('success'))
-            <div class="alert alert-success">
-                {{session()->get('success')}}
-            </div>
-        @endif
-
-
+    @alert
     <div class="cart card-default">
         <div class="card header">Gallery</div>
 

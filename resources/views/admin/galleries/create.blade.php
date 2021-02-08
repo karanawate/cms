@@ -5,12 +5,10 @@
         <div class="card-header">
              Gallery
         </div>
+        @alert
+
         <div class="card-body">
-            @if(session()->has('success'))
-                <div class="alert alert-success">
-                    {{session()->get('success')}}
-                </div>
-            @endif
+
             <form action="{{ route('galleries.store')}}" enctype="multipart/form-data"  method="post">
                 {{csrf_field()}}
                         <div class="form-group">
