@@ -66,13 +66,14 @@ class GalleriesController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'category' => $request->category,
-                'image' => $image ?? '',
+                'image' =>$image,
                 'published_at' => $request->published_at,
                 // 'thumbnail' => $thumbnail
 
             ]);
 
-            session()->flash('success', 'Inserted successfully');
+
+
             // return redirect(route('galleries.index'));
             return redirect()->back();
     }

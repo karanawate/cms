@@ -6,6 +6,7 @@
         </button>
     </div>
 @endif
+ <!--  if session has error  -->
 @if(session()->has('error'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{session()->get('error')}}
