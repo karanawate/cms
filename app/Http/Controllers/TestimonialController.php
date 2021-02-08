@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use  App\model\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -37,6 +38,7 @@ class TestimonialController extends Controller
      */
     public function store(CreateTestimonialRequest $request)
     {
+        dd($request->all());
         // $request-> validate([
         //     'title' => 'required'
         // ]);

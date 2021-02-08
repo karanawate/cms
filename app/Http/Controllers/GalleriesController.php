@@ -27,7 +27,7 @@ class GalleriesController extends Controller
                 $galleries = Galleries::where('title','LIKE', "%{$search}%")->simplePaginate(3);
             }
             else{
-                $galleries = Galleries::simplePaginate(3);
+                $galleries = Galleries::simplePaginate(8);
             }
            /// $galleries = Galleries::all();
           return view('admin.galleries.index', compact('galleries'));
@@ -66,12 +66,13 @@ class GalleriesController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'category' => $request->category,
-                'image' => $image ?? '',
+                'image' => $image ?? 'not found',
                 'published_at' => $request->published_at,
                 // 'thumbnail' => $thumbnail
 
             ]);
 
+            session()->flash('success', 'Inserted successfully');
 
 
             // return redirect(route('galleries.index'));

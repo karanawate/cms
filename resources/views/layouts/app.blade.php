@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,7 +25,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -85,9 +83,9 @@
 
         <main class="py-4">
             @auth
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
                 <div class="list-group accordion" id="accordionExample">
   <div class="list-group-item">
     <div  id="headingOne">
@@ -148,7 +146,7 @@
 
 </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                 @yield('content')
                 </div>
             </div>
@@ -162,7 +160,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 @yield('scripts')
-<!-- pin here when push is alert.blade.php -->
 @stack('js')
 
 </body>
