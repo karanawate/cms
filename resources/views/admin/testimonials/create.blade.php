@@ -1,49 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card card-default">
-        <div class="card-header">
-             Gallery
+    <div class="m-3 bg-white rounded-xl border p-4 shadow-sm">
+        <div class="mb-3">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
         </div>
-        <div class="card-body">
-            @if(session()->has('success'))
-                <div class="alert alert-success">
-                    {{session()->get('success')}}
-                </div>
-            @endif
-            <form action="{{ route('testimonials.store')}}" enctype="multipart/form-data"  method="post">
-            @csrf
-                        <div class="form-group">
-                            <label for="name">Title</lable>
-                            <input style="width:706px;" type="text" id="name" class="form-control" name="title" />
-                           <p style="color:red"> <?php echo  $errors->first('title') ?></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea name="description" class="form-control" id="" cols="3" rows="9" ></textarea>
-                            <p style="color:red"><?php echo  $errors->first('description') ?></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Category</lable>
-                            <input style="width:706px;" type="text" id="name" class="form-control" name="category" />
-                            <p style="color:red"> <?php echo  $errors->first('category') ?></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Image</lable>
-                            <input style="width:706px;" type="file" id="name" class="form-control" name="image" />
-                            <p style="color:red"><?php echo  $errors->first('image') ?></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="thumbnail">Thumbnail</lable>
-                            <input style="width:706px;" type="file" id="name" class="form-control" name="thumbnail" />
-                            <p style="color:red"> <?php echo  $errors->first('thumbnail') ?></p>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-success">
-                                Add Gallery
-                            </button>
-                        </div>
-            </form>
+        <div class="mb-3">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div class="mb-3">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div class="mb-5">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div class="text-center">
+        <a href="{{ route('galleries.create')}}" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white">Add Gallery</a>
         </div>
     </div>
+
+
+
+
 @endsection
