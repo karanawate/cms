@@ -1,15 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-    <div class="d-flex justify-content-end mb-2">
-
-        <a href="{{ route('galleries.create')}}" class="btn btn-success float-right">Add Gallery</a>
+    <div class="text-right">
+        <button class="bg-green-500 hover:bg-green-700 rounded-lg py-2 px-6 focus:border-transparent">Add Item</button>
     </div>
-    @alert
     <div class="cart card-default">
-        <div class="card header">Testimonials</div>
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class=" overflow-x-auto">

@@ -1,32 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="m-3 bg-white rounded-xl border p-4 shadow-sm">
-        <div class="mb-3">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
-        <div class="mb-3">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
-        <div class="mb-3">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
-        <div class="mb-3">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-            <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
+    <div class="text-right">
+        <button class="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Testimonial</button>
     </div>
-
-    <div class="d-flex justify-content-end mb-2">
-
-        <a href="{{ route('galleries.create')}}" class="btn btn-success float-right">Add Gallery</a>
-    </div>
-    @alert
     <div class="cart card-default">
-        <div class="card header">Testimonials</div>
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class=" overflow-x-auto">

@@ -57,6 +57,53 @@
                     <span class="ml-3 text-sm mr-2">Testimonials</span>
                 </a>
             </li>
+            <li class="my-px" x-data="{ isCollapsed: false }">
+                <a href="#"
+                    @click.prevent="isCollapsed = !isCollapsed"
+                    class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <span class="flex items-center justify-center text-green-400">
+                        <svg fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                class="h-4 w-4">
+                            <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </span>
+                    <span class="ml-3 text-sm mr-2">Catlogs</span>
+                    <span class="flex items-center justify-center text-sm text-gray-500 font-semibold  h-6 px-2 rounded-full ml-auto">
+                        <i class="fa fa-chevron-down"></i>
+                    </span>
+                </a>
+                <ul class="pl-4" x-show="isCollapsed">
+                    <li class="my-px">
+                        <a href="#"
+                        class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                            <span class="ml-3 text-sm mr-2">Items</span>
+                        </a>
+                    </li>
+                    <li class="my-px">
+                        <a href="#"
+                        class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                            <span class="ml-3 text-sm mr-2">Categories</span>
+                        </a>
+                    </li>
+                    <li class="my-px">
+                        <a href="#"
+                        class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                            <span class="ml-3 text-sm mr-2">Tags</span>
+                        </a>
+                    </li>
+                    <li class="my-px">
+                        <a href="#"
+                        class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                            <span class="ml-3 text-sm mr-2">Attributes</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="my-px">
                 <a href="#"
                     class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
@@ -73,6 +120,24 @@
                     </span>
                     <span class="ml-3 text-sm mr-2">Clients</span>
                     <span class="flex items-center justify-center text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto">1k</span>
+                </a>
+            </li>
+            <li class="my-px">
+                <a href="#"
+                    class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <span class="flex items-center justify-center text-gray-400">
+                        <svg fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                class="h-4 w-4">
+                            <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </span>
+                    <span class="ml-3 text-sm mr-2">Email Subscribers</span>
                 </a>
             </li>
             <li class="my-px" x-data="{ isCollapsed: false }">
