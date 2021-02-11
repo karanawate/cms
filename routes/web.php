@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('settings', function(){
+    return view('admin.settings.create');
+});
 Route::resource('categories','CategoriesController');
 Route::resource('galleries','GalleriesController');
 Route::resource('testimonials','TestimonialController');

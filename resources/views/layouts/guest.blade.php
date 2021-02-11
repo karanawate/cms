@@ -11,6 +11,7 @@
     ">
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,14 +25,11 @@
 
     @yield('css')
 </head>
-<body>
+<body class="bg-gray-100 ">
     <div id="app">
-        @navbar
-        @sidebar
         <main class="flex-1 py-4">
             @yield('content')
         </main>
-        @endsidebar
     </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
