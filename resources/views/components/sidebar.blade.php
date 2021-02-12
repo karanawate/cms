@@ -104,7 +104,7 @@
                         </a>
                     </li>
                     <li class="my-px">
-                        <a href="#"
+                        <a href="role"
                         class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
                             <span class="ml-3 text-sm mr-2">Roles</span>
                         </a>

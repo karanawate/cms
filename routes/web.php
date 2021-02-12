@@ -28,6 +28,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('profile', 'profileController');
 Route::resource('role', 'RoleController');
+Route::resource('admins', 'AdminController');
 
 Route::get('subs', function(){
     if (Gate::allows('subs-only', Auth::user())) {
