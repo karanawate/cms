@@ -11,7 +11,15 @@
 |
 */
 Route::get('settings', function(){
-    return view('admin.settings.create');
+    $options = \DB::select(
+        "SELECT name, data FROM options"
+    );
+    $options = collect($options);
+    $options = $options->mapWithKeys(function($row){
+        return [$row->name => $row->data];
+    });
+    // return $options;
+    return view('admin.settings.create', compact('options'));
 });
 Route::resource('categories','CategoriesController');
 Route::resource('galleries','GalleriesController');
@@ -28,7 +36,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('profile', 'profileController');
 Route::resource('role', 'RoleController');
-Route::resource('admins', 'AdminController');
+Route::resource('admin', 'AdminController');
 
 Route::get('subs', function(){
     if (Gate::allows('subs-only', Auth::user())) {

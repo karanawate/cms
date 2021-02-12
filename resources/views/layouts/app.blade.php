@@ -4,8 +4,18 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="{{ @$meta['description'] }}">
+    <meta name="keywords" content="{{ @$meta['keywords'] }}">
+    <meta property="og:site_name" content="{{ @$meta['app_name'] }}">
+    <link rel="canonical" href="{{ @$meta['app_url'] }}"/>
+    <meta property="og:title" content="{{ @$meta['title'] }}"/>
+    <meta property="og:description" content="{{ @$meta['description'] }}"/>
+    <meta property="og:url" content="{{ @$meta['app_url'] }}"/>
+    <link rel="shortcut icon" href="{{ @$meta['favicon'] }}" type="image/x-icon">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+
+
+    <title>{{ @$meta['title'] }}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
     ">
@@ -23,6 +33,7 @@
 
 
     @yield('css')
+    @stack('css')
 </head>
 <body>
     <div id="app">

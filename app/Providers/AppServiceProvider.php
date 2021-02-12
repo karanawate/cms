@@ -28,6 +28,16 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('components.alert', 'alert');
         Blade::component('components.sidebar', 'sidebar');
         Blade::include('components.navbar', 'navbar');
+        $options = cache()->remember('meta', (60 * 3), function() {
+            return \DB::select(
+                "SELECT name, data FROM options"
+            );
+        });
+        $options = collect($options);
+        $options = $options->mapWithKeys(function($row){
+            return [$row->name => $row->data];
+        });
+        view()->share('meta', $options);
 
     }
 }
