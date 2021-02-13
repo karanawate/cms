@@ -17,3 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('save_settings','Admin\OptionController@save');
+Route::post('save_anaylsis','Admin\AnaylsisController@save');

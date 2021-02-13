@@ -19,8 +19,6 @@ Route::get('anaylsis', function(){
       $options = $options->mapWithKeys(function ($row){
         return [$row->name =>$row->data];
       });
-      dump($options);die;
-
 
     return view('admin.settings.anaylsis.create', compact('options'));
 });
@@ -60,6 +58,14 @@ Route::get('subs', function(){
     {
         return  "You are not subscriber";
     }
+});
+
+Route::get('user-option', function(){
+    $user_data = \DB::select(
+        "SELECT name FROM options"
+    );
+    dd($user_data);
+
 });
 
 
