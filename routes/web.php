@@ -11,20 +11,16 @@
 |
 */
 Route::get('anaylsis', function(){
-    // $options = \DB::select(
-    //     "SELECT name, data FROM options"
-    // );
-    // $options = collect($options);
-    // dd($options);
-    // $options = $options->mapWithKeys(function($row){
-    //     return [$row->name => $row->data];
-    // });
+
     $options = \DB::select(
         "SELECT name, data from options"
     );
-      $optionss = collect($options);
-    dd($options);
-    //dd($optionss);
+      $options= collect($options);
+      $options = $options->mapWithKeys(function ($row){
+        return [$row->name =>$row->data];
+      });
+      dump($options);die;
+
 
     return view('admin.settings.anaylsis.create', compact('options'));
 });
