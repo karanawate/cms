@@ -45,13 +45,13 @@
                 </a>
                 <ul class="pl-4" x-show="isCollapsed">
                     <li class="my-px">
-                        <a href="#"
+                        <a href="general"
                         class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
-                            <span class="ml-3 text-sm mr-2">Genrals</span>
+                            <span class="ml-3 text-sm mr-2">General</span>
                         </a>
                     </li>
                     <li class="my-px">
-                        <a href="#"
+                        <a href="anaylsis"
                         class="flex flex-row items-center py-2 px-3 rounded-lg text-gray-600 hover:bg-gray-100">
                             <span class="ml-3 text-sm mr-2">Anaylsis</span>
                         </a>

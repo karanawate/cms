@@ -10,7 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('settings', function(){
+Route::get('anaylsis', function(){
+    // $options = \DB::select(
+    //     "SELECT name, data FROM options"
+    // );
+    // $options = collect($options);
+    // dd($options);
+    // $options = $options->mapWithKeys(function($row){
+    //     return [$row->name => $row->data];
+    // });
+    $options = \DB::select(
+        "SELECT name, data from options"
+    );
+      $optionss = collect($options);
+    dd($options);
+    //dd($optionss);
+
+    return view('admin.settings.anaylsis.create', compact('options'));
+});
+
+Route::get('general', function(){
     $options = \DB::select(
         "SELECT name, data FROM options"
     );
