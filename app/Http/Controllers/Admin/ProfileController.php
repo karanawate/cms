@@ -12,8 +12,8 @@ class ProfileController extends Controller
     {
         $current_user = Auth::user()->id;
         $users = \DB::table('users')->where('id', $current_user)->get();
-        dd($users);
-        return view('admin/profile');
+        //dd($users);
+        return view('admin/profile', compact('users'));
     }
 
 }

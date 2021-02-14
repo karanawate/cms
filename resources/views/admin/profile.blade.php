@@ -2,6 +2,10 @@
 
 @section('content')
     <section>
+    <script>
+    var sites = {!! json_encode($users) !!};
+    console.log(sites);
+</script>
         <div class="px-4">
             <h1 class="text-3xl mb-2">profile</h1>
             <p class="text-gray-600 mb-3">Save all Profile.</p>
