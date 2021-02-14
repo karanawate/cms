@@ -9,6 +9,7 @@
         <form action="" x-data="optionsForm()" @submit.prevent="saveSettings(event)">
             <div class="m-3 bg-white rounded-xl border w-2/3 p-4 shadow-sm">
             @csrf
+
                 <div class="mb-3">
                     <label for="app_name" class="block text-sm font-medium text-gray-700">Facebook link</label>
                     <input type="text" name="facebook_link" x-model="values.facebook_link" id="facebook_link" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
@@ -36,15 +37,17 @@
 <script>
     function optionsForm() {
         const formvalues = @json($options);
-
         const values = formvalues
+
         return {
             values
+
         }
     }
+
     async function saveSettings(event) {
         try {
-        const req = new Request(`/api/save_anaylsis`, {
+    const req = new Request(`/api/save_anaylsis`, {
                 method: 'POST',
                 body: new FormData(event.target)
             })

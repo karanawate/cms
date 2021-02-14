@@ -60,13 +60,9 @@ Route::get('subs', function(){
     }
 });
 
-Route::get('user-option', function(){
-    $user_data = \DB::select(
-        "SELECT name FROM options"
-    );
-    dd($user_data);
+Route::get('profile','admin\ProfileController@index');
 
-});
+
 
 
 
