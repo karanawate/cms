@@ -15,9 +15,30 @@ class ProfileController extends Controller
         //dd($users);
         return view('admin/profile', compact('users'));
     }
-    public function saved()
+    public function saved(Request $request)
     {
-        echo "Hi";
+        //dd($request->all());
+                try {
+                    $id = $request->userid;
+                    $userid = \App\User::find($id);
+                    $userid->name = $request->name;
+                    $userid->phone_number = $request->phone_number;
+                    $userid->position = $request->position;
+                    $userid->address = $request->address;
+                    $userid->nickname = $request->nickname;
+                    $userid->phonetic_name = $request->phonetic_name;
+                    $userid->save();
+            return[
+                "ok" =>true,
+                "message" =>"update succefully User",
+            ];
+        } catch (\Throwable $th) {
+            return[
+                "ok" =>false,
+                "message" =>$th->getmessage(),
+            ];
+
+        }
     }
 
 }
