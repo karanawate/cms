@@ -2,20 +2,16 @@
 
 @section('content')
     <section>
-    <script>
-    var sites = {!! json_encode($users) !!};
-    console.log(sites);
-</script>
         <div class="px-4">
             <h1 class="text-3xl mb-2">profile</h1>
             <p class="text-gray-600 mb-3">Save all Profile.</p>
         </div>
-        <form action="">
+        <form action="" id="form">
             <div class="m-3 bg-white rounded-xl border w-2/6 p-4 shadow-sm ml-3">
             @csrf
                 <div class="mb-3">
                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" name="name"  id="name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
+                    <input type="text" name="name"   value="{{ Auth::user()->name }}" id="name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
                 </div>
                 <div class="mb-3  ">
                     <label for="phone" class="block  text-sm font-medium text-gray-700">Phone Number</label>
@@ -39,9 +35,20 @@
                 </div>
                 </div>
                 <div class="text-left">
-                <button class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white ml-80">Save</button>
+                    <input type="submit"  value="Save" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white ml-80" / >
                 </div>
             </div>
         </form>
     </section>
+@push('js')
+<script>
+    var profileform = document.getElementById('form')
+
+    profileform.addEventListener('submit', function(event){
+        event.preventDefault();
+         alert("Hi");
+
+    });
+</script>
+@endpush
 @endsection
