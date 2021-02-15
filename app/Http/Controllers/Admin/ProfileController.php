@@ -15,5 +15,9 @@ class ProfileController extends Controller
         //dd($users);
         return view('admin/profile', compact('users'));
     }
+    public function saved()
+    {
+        echo "Hi";
+    }
 
 }
