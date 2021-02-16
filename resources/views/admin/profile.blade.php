@@ -38,42 +38,47 @@
                     <input type="text" name="userid" value="{{ Auth::user()->id }}" id="userid" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
                 </div>
                 <div class="text-left">
-                    <button class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white ">Save</button>
+                    <button type="submit" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white ">Save</button>
                 </div>
                 </div>
             </div>
         </form>
     </section>
 @push('js')
-<script>
-    $('#profileform').submit(function(event){
-        event.preventDefault();
+    <script>
+        const myform = document.getElementById("profileform")
 
-        var userid = $('#userid').val();
-        var name = $('#name').val();
-        var phone_number = $('#phone_number').val();
-        var position = $('#position').val();
-        var address = $('#address').val();
-        var nickname = $('#nickname').val();
-        var phonetic_name = $('#phonetic_name').val();
-
-        $.ajax({
-            type:'POST',
-            url:'/api/profileupdate',
-            data:{
-                userid:userid,
-                name:name,
-                phone_number:phone_number,
-                position:position,
-                address:address,
-                phonetic_name:phonetic_name,
-                nickname:nickname
-            },
-            success: function(data){
-                console.log(data);
+        myform.addEventListener("submit",(e) => {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var phone_number = document.getElementById('phone_number').value;
+            var address = document.getElementById('address').value;
+            var phonetic_name = document.getElementById('phonetic_name').value;
+            var nickname = document.getElementById('nickname').value;
+            var userid = document.getElementById('userid').value;
+            var position = document.getElementById('position').value;
+            try {
+                    axios({
+                        method:'post',
+                        url:'/api/profileupdate',
+                        data: {
+                            name:name,
+                            userid:userid,
+                            phone_number:phone_number,
+                            address:address,
+                            phonetic_name:phonetic_name,
+                            nickname:nickname,
+                            position:position,
+                        },
+                    }).then(function (response){
+                        console.log(response);
+                        alert("sucefully alert");
+                    });
+            } catch (error) {
+                console.log(error);
             }
+
         })
-    });
-</script>
+    </script>
 @endpush
 @endsection
