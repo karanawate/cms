@@ -31,6 +31,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach($testimonials_all as $testimonial)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
@@ -39,7 +40,7 @@
                             </div>
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">
-                                Jane Cooper
+                                {{ $testimonial->title }}
                                 </div>
                                 <div class="text-sm text-gray-500">
                                 jane.cooper@example.com
@@ -56,14 +57,16 @@
                             Active
                             </span>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                        <td id="del_id" class="px-6  py-4 whitespace-nowrap  text-sm text-gray-500">
+                            admin
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <button class="bg-red-500 text-white-200 rounded-lg w-20 h-7" id="{{ $testimonial->id }}" onClick="del_testimonial(this.id)">B3</button>
                         </td>
-                        </tr>
 
+                        </tr>
+                            @endforeach
                         <!-- More items... -->
                     </tbody>
                     </table>
@@ -72,4 +75,26 @@
             </div>
         </div>
     </div>
+    @push('js')
+    <script>
+        function del_testimonial(id)
+        {
+            const myid = id;
+            try {
+                axios({
+                    method:'post',
+                    url:'/api/testimonials',
+                    data:{
+                        myid:myid,
+                    },
+                }).then(function (response){
+                    console.log(response)
+                });
+            } catch (error) {
+
+            }
+
+        }
+    </script>
+    @endpush
 @endsection

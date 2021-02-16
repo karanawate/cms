@@ -124,6 +124,21 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+    }
+    public function deleted(Request $request)
+    {
+            try {
+                $id = $request->myid;
+                $test_delete = \DB::table('testimonials')->where('id',$id)->delete();
+                return [
+                    'okay' =>true,
+                    'message' =>'Testimonial deleted'
+                ];
+            } catch (\Throwable $th) {
+                //throw $th;
+
+            }
+
     }
 }
