@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-right">
-        <button class="bg-green-500 text-white hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Testimonial</button>
+        <a href="create"  class="bg-green-500 text-white hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Testimonial</a>
     </div>
     <div class="cart card-default">
         <!-- This example requires Tailwind CSS v2.0+ -->

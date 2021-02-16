@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <form id="testform">
     <div class="m-3 bg-white rounded-xl border p-4 shadow-sm">
         <div class="mb-3">
             <label for="first_name" class="block text-sm font-medium text-gray-700">Title</label>
@@ -57,12 +58,19 @@
             </div>
           </div>
         <div class="text-center">
-        <a href="{{ route('galleries.create')}}" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white">Add Testimonial</a>
+        <button type="submit" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white">Add Testimonial</button>
         </div>
-
     </div>
+    </form>
+    @push('js')
+        <script>
+         const form = document.getElementById('testform');
+         form.addEventListener('submit', (event) => {
+            event.preventDefault();
 
+         });
 
-
+        </script>
+    @endpush
 
 @endsection

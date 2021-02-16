@@ -33,7 +33,7 @@
                     <label for="position" class="block  text-sm font-medium text-gray-700">position</label>
                     <input type="text" name="position"  id="position" value="{{ Auth::user()->position }}" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
                 </div>
-                <div class="mb-3  ">
+                <div class="mb-3 invisible">
                     <label for="userid" class="block  text-sm font-medium text-gray-700">id</label>
                     <input type="text" name="userid" value="{{ Auth::user()->id }}" id="userid" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200">
                 </div>
@@ -47,7 +47,6 @@
 @push('js')
     <script>
         const myform = document.getElementById("profileform")
-
         myform.addEventListener("submit",(e) => {
             e.preventDefault();
             var name = document.getElementById('name').value;
@@ -57,6 +56,7 @@
             var nickname = document.getElementById('nickname').value;
             var userid = document.getElementById('userid').value;
             var position = document.getElementById('position').value;
+
             try {
                     axios({
                         method:'post',
@@ -72,7 +72,7 @@
                         },
                     }).then(function (response){
                         console.log(response);
-                        alert("sucefully alert");
+                        alert("sucefully updated");
                     });
             } catch (error) {
                 console.log(error);
