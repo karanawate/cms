@@ -5,11 +5,11 @@
     <div class="m-3 bg-white rounded-xl border p-4 shadow-sm">
         <div class="mb-3">
             <label for="first_name" class="block text-sm font-medium text-gray-700">Title</label>
-            <input type="text" name="title" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <input type="text" name="title" id="title" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400">
         </div>
         <div class="mb-3  ">
             <label for="first_name" class="block  text-sm font-medium text-gray-700">Description</label>
-            <input type="text" name="description" id="first_name" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400  h-32">
+            <input type="text" name="description" id="description" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400  h-32">
         </div>
         <div>
               <label class="block text-sm font-medium text-gray-700">
@@ -23,7 +23,7 @@
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                       <span>Upload a file</span>
-                      <input id="file-upload" name="image" type="file" class="sr-only">
+                      <input id="file_upload" name="image" type="file" class="sr-only">
                     </label>
                     <p class="pl-1">or drag and drop</p>
                   </div>
@@ -65,8 +65,26 @@
     @push('js')
         <script>
          const form = document.getElementById('testform');
-         form.addEventListener('submit', (event) => {
+         form.addEventListener('submit',(event) => {
             event.preventDefault();
+            var title = document.getElementById('title').value;
+            var description = document.getElementById('description').value;
+            var file_upload = document.getElementById('file_upload').value;
+            try {
+                    axios({
+                        method:'post',
+                        url:'/api/testimonials',
+                        data:{
+                            title:title,
+                            description:description,
+                            file_upload:file_upload,
+                        },
+                    }).then(function(response){
+                        console.log(response)
+                    });
+            } catch (error) {
+                console.log(error);
+            }
 
          });
 

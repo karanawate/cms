@@ -39,28 +39,47 @@ class TestimonialController extends Controller
      */
     public function store(CreateTestimonialRequest $request)
     {
-        //dd($request->all());
-
-
-
+      //  dd($request->all());
+        $insert_testimonial = Testimonial::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category' => $request->category,
+            'image' => $image ??  "not found"
+        ]);
+        return [
+            'ok'=>true,
+            'message' =>"Inserted succefully"
+        ];
+        return [
+            'ok' =>false,
+            'message' =>"unable to insert"
+        ];
         $cover = $request->file('image');
         // enctype = "multipart/form-data" use file glbal parameter working
-        if($request->hasFile('image'))
-        {
-            $extension = $cover->getClientOriginalExtension();
-            Storage::disk('gallery')->put($cover->getFilename() . '.' . $extension,  File::get($cover));
-            $image = $cover->getFilename() . '.' . $extension;
+        // if($request->hasFile('image'))
+        // {
+        //     $extension = $cover->getClientOriginalExtension();
+        //     Storage::disk('gallery')->put($cover->getFilename() . '.' . $extension,  File::get($cover));
+        //     $image = $cover->getFilename() . '.' . $extension;
 
-            $insert_testimonial = Testimonial::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'category' => $request->category,
-                'image' => $image ??  "not found"
-            ]);
-            session()->flash('success', 'Inserted successfully');
-            return redirect()->back();
+        //     $insert_testimonial = Testimonial::create([
+        //         'title' => $request->title,
+        //         'description' => $request->description,
+        //         'category' => $request->category,
+        //         'image' => $image ??  "not found"
+        //     ]);
+        //     return [
+        //         'ok'=>true,
+        //         'message' =>"Inserted succefully"
+        //     ];
+        //     return [
+        //         'ok' =>false,
+        //         'message' =>"unable to insert"
+        //     ];
+        //     // session()->flash('success', 'Inserted successfully');
+        //     // return redirect()->back();
 
-        }
+        // }
     }
 
     /**
