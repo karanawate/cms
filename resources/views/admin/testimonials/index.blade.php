@@ -40,7 +40,7 @@
                             </div>
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">
-                                {{ $testimonial->title }}
+                                <a href="{{ $testimonial->id }}/edit" class="text-blue-700"> {{ $testimonial->title }}</a>
                                 </div>
                                 <div class="text-sm text-gray-500">
                                 jane.cooper@example.com
@@ -58,11 +58,11 @@
                             </span>
                         </td>
                         <td id="del_id" class="px-6  py-4 whitespace-nowrap  text-sm text-gray-500">
-                            admin
+
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                            <button class="bg-red-500 text-white-200 rounded-lg w-20 h-7" id="{{ $testimonial->id }}" onClick="del_testimonial(this.id)">B3</button>
+                            <button class="bg-red-500 text-white-200 rounded-lg w-20 h-7" id="{{ $testimonial->id }}" onClick="del_testimonial(this.id)">Delete</button>
                         </td>
 
                         </tr>
@@ -83,7 +83,7 @@
             try {
                 axios({
                     method:'post',
-                    url:'/api/testimonials',
+                    url:'/api/testimonial',
                     data:{
                         myid:myid,
                     },
@@ -91,7 +91,7 @@
                     console.log(response)
                 });
             } catch (error) {
-
+                    console.log(error)
             }
 
         }
