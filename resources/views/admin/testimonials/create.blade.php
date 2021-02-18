@@ -58,7 +58,7 @@
             </div>
           </div>
         <div class="text-center">
-        <button type="submit" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white">Add Testimonial</button>
+        <button type="submit" id="btn_addlistner" class="bg-blue-600  hover:bg-blue-900 px-4 py-2 rounded-lg text-white">Add Testimonial</button>
         </div>
     </div>
     </form>
@@ -67,6 +67,7 @@
          const form = document.getElementById('testform');
          form.addEventListener('submit',(event) => {
             event.preventDefault();
+            var btnaddlistner = document.getElementById('btn_addlistner').innerHTML = 'testimonial Added.....';
             var title = document.getElementById('title').value;
             var description = document.getElementById('description').value;
             var file_upload = document.getElementById('file_upload').value;
@@ -81,6 +82,7 @@
                         },
                     }).then(function(response){
                         console.log(response)
+
                     });
             } catch (error) {
                 console.log(error);
