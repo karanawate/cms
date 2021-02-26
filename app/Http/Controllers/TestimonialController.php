@@ -39,12 +39,12 @@ class TestimonialController extends Controller
      */
     public function store(CreateTestimonialRequest $request)
     {
-      //  dd($request->all());
+       dd($request->all());
         $insert_testimonial = Testimonial::create([
             'title' => $request->title,
             'description' => $request->description,
             'category' => $request->category,
-            'image' => $image ??  "not found"
+            'image' => $request->fileToUpload,
         ]);
         return [
             'ok'=>true,
