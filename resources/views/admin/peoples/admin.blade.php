@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+    .box {
+        display:none;
+    }
+    </style>
+    <div class="check box">
+        <button class="bg-red-500 h-8 hover:bg-red-600 rounded-lg shadow-md w-1/12">Delete</button>
+    </div>
     <div class="text-right">
         <button class="bg-green-500 text-white hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Admin</button>
     </div>
@@ -13,6 +21,11 @@
                     <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
+                        <th class="px-6  text-left py-0 whitespace-nowrap">
+                            <label class="inline-flex">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600">
+                            </label>
+                        </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Name
                         </th>
@@ -33,6 +46,11 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($admins as $admin)
                         <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <label class="inline-flex items-center mt-3">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" value="check" >
+                            </label>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
 
@@ -69,4 +87,16 @@
             </div>
         </div>
     </div>
+    @push('js')
+        <script>
+            $(document).ready(function(){
+                //alert("Hi");
+                $('input[type="checkbox"]').click(function(){
+                    var inputValue = $(this).attr("value");
+                      $("." + inputValue).toggle();
+
+                })
+            })
+        </script>
+    @endpush
 @endsection

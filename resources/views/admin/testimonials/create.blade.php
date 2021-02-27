@@ -13,7 +13,7 @@
             <label for="first_name" class="block  text-sm font-medium text-gray-700">Description</label>
             <input type="text" name="description" id="description" autocomplete="given-name" class="rounded-lg px-3 mt-1 w-full py-1 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400  h-32">
         </div>
-        <input type="file" name="fileToUpload" id="fileToUpload" >
+        <!-- <input type="file" name="fileToUpload" id="fileToUpload" > -->
         <div>
               <label class="block text-sm font-medium text-gray-700">
                 Cover photo
@@ -27,7 +27,7 @@
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                       <span>Upload a file</span>
-                      <input id="file_upload2" name="image" type="file" class="sr-only">
+                      <input id="fileToUpload" name="fileToUpload" type="file" class="sr-only">
                     </label>
                     <p class="pl-1">or drag and drop</p>
                   </div>
