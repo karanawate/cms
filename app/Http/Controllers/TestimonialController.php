@@ -44,7 +44,7 @@ class TestimonialController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'category' => $request->category,
-            'image' => $request->fileToUpload,
+             'image' => $request->fileToUpload,
         ]);
         return [
             'ok'=>true,

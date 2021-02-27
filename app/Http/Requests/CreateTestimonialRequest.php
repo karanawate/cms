@@ -26,7 +26,7 @@ class CreateTestimonialRequest extends FormRequest
         return [
             'title' =>'required',
             'description' =>'required',
-            'file_upload' =>'required',
+            // 'file_upload' =>'required',
         ];
     }
 }

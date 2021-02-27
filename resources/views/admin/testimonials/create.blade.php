@@ -2,6 +2,7 @@
 
 @section('content')
     <form id="testform" enctype="multipart/form-data">
+    @csrf
     <div  style=" display:none;padding: .75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: .25rem;color: #155724;background-color: #d4edda; border-color: #c3e6cb;"   id="msg1"></div>
     <div class="m-3 bg-white rounded-xl border p-4 shadow-sm">
         <div class="mb-3">
@@ -73,13 +74,21 @@
           $(`[role="status"]`).hide().html('')
             event.preventDefault();
             var btnaddlistner = document.getElementById('btn_addlistner').innerHTML = 'testimonial Added.....';
-            const formdata = {
-                title: $('#title').val(),
-                description: $('#description').val(),
-                fileToUpload: $('#fileToUpload')[0].files[0],
+
+            var title = document.getElementById('title').value;
+            var description = document.getElementById('description').value;
+            var fileToUpload  = document.getElementById('fileToUpload').value;
+
+          const formdata =
+            {
+                title:title,
+                description:description,
+                fileToUpload:fileToUpload
             }
+
             try {
-              const {data} = await axios.post('/api/testimonials', formdata, {
+              const {data} = await axios.post('/api/testimonials',formdata ,{
+
                 // headers: {'Content-Type': 'multipart/form-data' }
               })
               console.log({ data })
