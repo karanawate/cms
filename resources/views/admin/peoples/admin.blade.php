@@ -2,12 +2,12 @@
 
 @section('content')
     <style>
-    .box {
+    /* .box {
         display:none;
-    }
+    } */
     </style>
     <div class="check box">
-        <button class="bg-red-500 h-8 hover:bg-red-600 rounded-lg shadow-md w-1/12">Delete</button>
+        <button class="bg-red-500 h-8 hover:bg-red-600 rounded-lg shadow-md w-1/12" id="delete">Delete</button>
     </div>
     <div class="text-right">
         <button class="bg-green-500 text-white hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Admin</button>
@@ -47,7 +47,7 @@
                     @forelse($admins as $admin)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <label class="inline-flex items-center mt-3">
+                            <label id='recordsTable' class="inline-flex items-center mt-3">
                                     <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" value="check" >
                             </label>
                         </td>
@@ -90,12 +90,37 @@
     @push('js')
         <script>
             $(document).ready(function(){
-                //alert("Hi");
-                $('input[type="checkbox"]').click(function(){
-                    var inputValue = $(this).attr("value");
-                      $("." + inputValue).toggle();
+                $('#delete').click(function(){
+                    var post_arr = [];
+                    // Get checked checkboxes
+                    $('#recordsTable input[type=checkbox]').each(function() {
+                    if (jQuery(this).is(":checked")) {
+                        var id = this.id;
+                        var splitid = id.split('_');
+                        var postid = splitid[1];
+                        post_arr.push(postid);
 
-                })
+                    }
+                    });
+
+                    if(post_arr.length > 0){
+
+                        var isDelete = confirm("Do you really want to delete records?");
+                        if (isDelete == true) {
+                        // AJAX Request
+                        $.ajax({
+                            url: '/api/admindel',
+                            type: 'POST',
+                            data: { post_id: post_arr},
+                            success: function(response){
+                                $.each(post_arr, function( i,l ){
+                                    $("#tr_"+l).remove();
+                                });
+                            }
+                        });
+                        }
+                    }
+                    });
             })
         </script>
     @endpush
