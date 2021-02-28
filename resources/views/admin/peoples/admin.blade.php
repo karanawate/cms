@@ -2,12 +2,12 @@
 
 @section('content')
     <style>
-    /* .box {
+    .box {
         display:none;
-    } */
+    }
     </style>
     <div class="check box">
-        <button class="bg-red-500 h-8 hover:bg-red-600 rounded-lg shadow-md w-1/12" id="delete">Delete</button>
+        <button onclick="del_many()" class="bg-red-500 h-8 hover:bg-red-600 rounded-lg shadow-md w-1/12" id="btn_delete">Delete</button>
     </div>
     <div class="text-right">
         <button class="bg-green-500 text-white hover:bg-green-700 px-6 py-2 rounded-lg focus:border-transparent">Add Admin</button>
@@ -48,7 +48,7 @@
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <label id='recordsTable' class="inline-flex items-center mt-3">
-                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" value="check" >
+                                    <input type="checkbox"  class="form-checkbox h-5 w-5 text-gray-600" value="{{ $admin->id }}" >
                             </label>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -88,40 +88,57 @@
         </div>
     </div>
     @push('js')
-        <script>
+    <script>
             $(document).ready(function(){
-                $('#delete').click(function(){
-                    var post_arr = [];
-                    // Get checked checkboxes
-                    $('#recordsTable input[type=checkbox]').each(function() {
-                    if (jQuery(this).is(":checked")) {
-                        var id = this.id;
-                        var splitid = id.split('_');
-                        var postid = splitid[1];
-                        post_arr.push(postid);
+                //alert("Hi");
+                const $actions = $('.check')
+                const $checkboxes = $('td input[type="checkbox"]')
+                const $checkAll = $('th input[type="checkbox"]')
+                const checkboxes = document.querySelectorAll('td input[type="checkbox"]')
 
+                $checkAll.click(function (event) {
+                    for(var i = 0; i < checkboxes.length; i++) {
+                        checkboxes[i].checked = event.target.checked;
                     }
-                    });
+                })
 
-                    if(post_arr.length > 0){
+                // checkall.checked = checkedCount > 0;
+                // checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
 
-                        var isDelete = confirm("Do you really want to delete records?");
-                        if (isDelete == true) {
-                        // AJAX Request
-                        $.ajax({
-                            url: '/api/admindel',
-                            type: 'POST',
-                            data: { post_id: post_arr},
-                            success: function(response){
-                                $.each(post_arr, function( i,l ){
-                                    $("#tr_"+l).remove();
-                                });
-                            }
-                        });
-                        }
+                $('input[type="checkbox"]').click(function(){
+                    // var inputValue = $(this).attr("value");
+                    const checkedItems = $('td input[type="checkbox"]:checked')
+                    if(checkedItems && checkedItems.length) {
+                        $actions.show()
+                        $checkAll[0].checked = true
+                        $checkAll[0].indeterminate = checkedItems.length < $checkboxes.length
+                    } else {
+                        $actions.hide()
+                        $checkAll[0].checked = false
+                        $checkAll[0].indeterminate = false
                     }
-                    });
-            })
+
+                    //console.log({ checkedItems })
+                    // $actions.
+                    //   $("." + inputValue).toggle();
+                })
+                            })
+                async function del_many(){
+                    let checkedIds = []
+                    const checkedItems = document.querySelectorAll('td input[type="checkbox"]:checked')
+                    Array.from(checkedItems).map(ch => checkedIds[ch.value] = ch.value)
+                    console.log({checkedIds});
+                    try {
+                       const {data} = await axios.post('/api/manydeletes',{
+                        checkedIds,
+                        _token:'{{ csrf_token() }}'
+                       })
+                       console.log(data)
+                    } catch (error) {
+                        console.log({ error })
+                    }
+                }
+
         </script>
     @endpush
 @endsection

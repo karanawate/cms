@@ -84,4 +84,22 @@ class AdminController extends Controller
     {
         //
     }
+    public function deleted(Request $request)
+    {
+
+        try {
+            $del_id = User::whereIn('id', $request->checkedIds)->delete();
+            return [
+                'ok' =>true,
+                'message' =>'User Succesfully Deleted'
+            ];
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            return [
+                'ok' =>false,
+                'message' =>$th->getMessage()
+            ];
+        }
+    }
 }

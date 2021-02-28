@@ -21,6 +21,4 @@ Route::post('save_anaylsis','Admin\AnaylsisController@save');
 Route::post('profileupdate','Admin\ProfileController@saved');
 Route::resource('testimonials','TestimonialController');
 Route::post('testimonial','TestimonialController@deleted');
-Route::post('admindel', function(){
-    echo "Hi";
-});
+Route::post('/manydeletes','AdminController@deleted');
