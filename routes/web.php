@@ -23,17 +23,21 @@ Route::get('anaylsis', function(){
     return view('admin.settings.anaylsis.create', compact('options'));
 });
 
-Route::get('general', function(){
-    $options = \DB::select(
-        "SELECT name, data FROM options"
-    );
-    $options = collect($options);
-    $options = $options->mapWithKeys(function($row){
-        return [$row->name => $row->data];
+
+Route::group(['middleware' =>['auth','access'],], function(){
+    Route::get('general', function(){
+        $options = \DB::select(
+            "SELECT name, data FROM options"
+        );
+        $options = collect($options);
+        $options = $options->mapWithKeys(function($row){
+            return [$row->name => $row->data];
+        });
+        // return $options;
+        return view('admin.settings.create', compact('options'));
     });
-    // return $options;
-    return view('admin.settings.create', compact('options'));
 });
+
 Route::resource('categories','CategoriesController');
 Route::resource('galleries','GalleriesController');
 Route::resource('testimonials','TestimonialController');
